@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="start-screen">
+            <h1>🎯 Knowledge Quiz Challenge</h1>
+            <p>Test your knowledge with this engaging 10-question quiz!</p>
+            
+            <div class="quiz-rules">
+                <h2>Quiz Rules</h2>
+                <ul>
+                    <li>10 questions to answer in 10 minutes</li>
+                    <li>Correct answer: +4 points</li>
+                    <li>Wrong answer: -1 point</li>
+                    <li>Unattempted: 0 points</li>
+                    <li>Quiz auto-submits when time expires</li>
+                    <li>Warning alert at 1 minute remaining</li>
+                    <li>Navigate freely between questions</li>
+                    <li>Your progress is saved automatically</li>
+                </ul>
+            </div>
+            
+            <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="quiz-screen hidden">
+            <div class="quiz-header">
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span> of 10
+                </div>
+                <div class="timer" id="timer">
+                    ⏱️ <span id="timeLeft">10:00</span>
+                </div>
+            </div>
+
+            <div class="question-nav" id="questionNav"></div>
+
+            <div class="question-content">
+                <img id="questionImage" class="question-image" src="" alt="Question Image">
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="controls">
+                <div class="nav-controls">
+                    <button class="btn" id="prevBtn" onclick="prevQuestion()">← Previous</button>
+                    <button class="btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+                </div>
+                <button class="btn" onclick="submitQuiz()">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="results-screen hidden">
+            <h1>🎉 Quiz Complete!</h1>
+            
+            <div class="score-card">
+                <div>Your Score</div>
+                <div class="score-big" id="finalScore">0</div>
+                <div id="scoreMessage"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value" id="accuracy">0%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Time Taken</div>
+                    <div class="stat-value" id="timeTaken">0:00</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Correct</div>
+                    <div class="stat-value" id="correctCount">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Incorrect</div>
+                    <div class="stat-value" id="incorrectCount">0</div>
+                </div>
+            </div>
+
+            <h2 style="margin: 40px 0 20px 0; color: #667eea;">📝 Answer Review</h2>
+            <div id="reviewContainer"></div>
+
+            <button class="btn" onclick="restartQuiz()" style="margin-top: 30px;">Take Quiz Again</button>
+        </div>
+    </div>
+
+ <script src="script.js"></script>
+ 
+</body>
+</html>
